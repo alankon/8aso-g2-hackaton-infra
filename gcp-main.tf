@@ -1,3 +1,12 @@
+variable "db_user" {
+  description = "The username for google_sql_database"
+  type        = string
+}
+variable "db_pass" {
+  description = "The password for google_sql_database"
+  type        = string
+}
+
 resource "google_artifact_registry_repository" "backend-repo" {
   location = "us-central1"
   repository_id = "grupo-02-backend-registry"
