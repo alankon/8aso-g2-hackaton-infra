@@ -37,3 +37,10 @@ resource "google_sql_user" "users" {
   instance = google_sql_database_instance.instance.name
   password = var.db_pass
 }
+
+resource "null_resource" "db_setup" {
+  depends_on = [google_sql_database_instance.instance, google_sql_user.users]
+  provisioner "local-exec" {
+    command = "mysql --host=35.224.167.15 --user=${var.db_user} --password=${var.db_pass} --database=playlist < Playlist.sql"
+  }
+}
