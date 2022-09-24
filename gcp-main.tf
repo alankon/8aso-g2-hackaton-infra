@@ -29,7 +29,7 @@ resource "google_sql_database_instance" "instance" {
 }
 
 resource "google_sql_user" "users" {
-  name     = "hackathon-grupo-02"
+  name     = var.db_user
   instance = google_sql_database_instance.instance.name
-  password = "1gNcA!840y!6"
+  password = var.db_pass
 }
