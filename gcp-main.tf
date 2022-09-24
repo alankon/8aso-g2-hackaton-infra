@@ -21,11 +21,6 @@ resource "google_artifact_registry_repository" "frontend-repo" {
   format = "DOCKER"
 }
 
-resource "google_sql_database" "database" {
-  name     = "spotmusic-playlist"
-  instance = google_sql_database_instance.instance.name
-}
-
 resource "google_sql_database_instance" "instance" {
   name             = "spotmusic-database"
   region           = "us-central1"
