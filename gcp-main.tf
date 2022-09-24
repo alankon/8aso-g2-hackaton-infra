@@ -11,3 +11,25 @@ resource "google_artifact_registry_repository" "frontend-repo" {
   description = "Hackathon Frontend Docker Images"
   format = "DOCKER"
 }
+
+resource "google_sql_database" "database" {
+  name     = "spotmusic-playlist"
+  instance = google_sql_database_instance.instance.name
+}
+
+resource "google_sql_database_instance" "instance" {
+  name             = "spotmusic-database"
+  region           = "us-central1"
+  database_version = "MYSQL_8_0"
+  settings {
+    tier = "db-f1-micro"
+  }
+
+  deletion_protection  = "true"
+}
+
+resource "google_sql_user" "users" {
+  name     = "hackathon-grupo-02"
+  instance = google_sql_database_instance.instance.name
+  password = "1gNcA!840y!6"
+}
