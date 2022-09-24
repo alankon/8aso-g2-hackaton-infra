@@ -1,8 +1,8 @@
-variable "name" {
+variable "db_user" {
   description = "The username for google_sql_database"
   type        = string
 }
-variable "password" {
+variable "db_pass" {
   description = "The password for google_sql_database"
   type        = string
 }
