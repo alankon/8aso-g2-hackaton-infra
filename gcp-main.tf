@@ -31,6 +31,5 @@ resource "google_sql_database_instance" "instance" {
 resource "google_sql_user" "users" {
   name     = "hackathon-grupo-02"
   instance = google_sql_database_instance.instance.name
-  host     = "google.com"
   password = "1gNcA!840y!6"
 }
